@@ -182,14 +182,15 @@ end
 def player_stats (player_name)
   if game_hash[:home][:players].has_key? player_name
     game_hash[:home][:players].collect do |key,value|
-    if key == player_name
-     return value
-      else game_hash[:away][:players].collect do |key,value|
       if key == player_name
       return value
       end
+  end
+  elsif game_hash[:away][:players].has_key? player_name
+    game_hash[:away][:players].collect do |key,value|
+      if key == player_name
+      return value
       end
-      end
-    end
+  end
   end
 end
